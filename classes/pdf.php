@@ -1,6 +1,6 @@
 <?php 
 
-namespace Classes;
+namespace classes;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
