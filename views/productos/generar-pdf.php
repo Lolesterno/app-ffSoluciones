@@ -1,6 +1,6 @@
 <?php
 
-use classes\PDF;
+use Classes\Pdf;
 
 require_once __DIR__. '/../../includes/app.php';
 
