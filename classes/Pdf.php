@@ -5,7 +5,7 @@ namespace Classes;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-class PDF  {
+class Pdf  {
 
     public function generarPDF($html) {
 
