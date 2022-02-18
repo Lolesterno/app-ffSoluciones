@@ -6,7 +6,7 @@
 
     <div class="botones-superior">
         <a href="/generar-pdf" class="boton boton-pequeño">Descargar lista de productos</a>
-        <?php if($_SESSION['admin'] ?? null){ ?>
+        <?php if($_SESSION['admin']){ ?>
             <a href="/crear" class="boton-crear">Nuevo Producto</a>
         <?php } ?>
     </div>
