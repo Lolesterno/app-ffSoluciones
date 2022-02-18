@@ -2,7 +2,7 @@
 
 use Model\Producto;
 
-$medidores =  Producto::categorizar('medidores');
+$medidores =  Producto::categorizar('micromedidores');
 $macros =  Producto::categorizar('macromedidores');
 $electrosCAB =  Producto::categorizar('medidores electromagneticos CONTROLAGUA BATERIA');
 $electrosSB =  Producto::categorizar('medidores electromagneticos SIEMENS BATERIA');
