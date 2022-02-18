@@ -41,7 +41,6 @@ $router->get('/crear', [ProductosController::class, 'crear']);
 $router->post('/crear', [ProductosController::class, 'crear']);
 $router->get('/editar-producto', [ProductosController::class, 'editar']);
 $router->post('/editar-producto', [ProductosController::class, 'editar']);
-$router->post('/productos/eliminar', [ProductosController::class, 'eliminar']);
 
 //Usuarios
 $router->get('/usuarios', [UsuariosController::class, 'index']);

@@ -130,31 +130,7 @@ class ProductosController {
             'producto' => $producto,
             'categorias' => $categorias
         ]);
-    }
-
-
-    public static function eliminar() {
-
-        isAuth();
-
-        $_SESSION['admin'] = null;
-
-        if($_SESSION['admin']) {
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-                $id = $_POST['id'];
-                $producto = Producto::find($id);
-                $producto->eliminar();
-    
-                header('Location: /productos');
-            } 
-        } else {
-            echo 'Acceso denegado';
-            header('Location: /productos');
-        }        
-    }
-
-    
+    }   
 
 
 }
