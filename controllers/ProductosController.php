@@ -12,6 +12,7 @@ class ProductosController {
 
         isAuth();
         $alertas = [];
+        $productos = new Producto;
         $productos = Producto::all();
         
         $router->render('productos/index', [
