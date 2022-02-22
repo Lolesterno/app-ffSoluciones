@@ -1,0 +1,37 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.producto {
+
+    margin: 0 2rem; 
+    
+
+    .cod-producto {
+        color: v.$gris;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cantidades {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    p {
+        margin: 0;
+        text-align: center;
+        color: v.$gris;
+        font-size: 10px;
+    }
+
+    h3 {
+        text-transform: capitalize;
+        font-size: 12px;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.secciones {
+    overflow: scroll;
+
+
+    .listado-productos {
+        display: block;
+        margin: 1rem;
+
+        @include m.tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .producto {
+            
+            border-radius: 1rem;
+            margin: 1rem;
+
+            h3 {
+                
+                text-transform: capitalize;
+                color: lighten(v.$gris, 20);
+            }
+            p{
+                text-align: center;
+                color: darken(v.$gris, 10) ;
+            }
+
+            .imagen-producto {
+                margin: 1rem auto;
+                background-color: v.$blanco;
+                padding: 2rem;
+                width: 60%;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

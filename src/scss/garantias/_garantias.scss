@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.no-garantias {
+    a {
+        color: v.$azul;
+    }
+}
+
+.nueva-garantia {
+    @include m.boton(v.$amarillo, v.$blanco);
+}

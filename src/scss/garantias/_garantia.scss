@@ -1,0 +1,112 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-nueva-garantia {
+    display: flex;
+    justify-content: center;
+
+    .agregar-garantia {
+        @include m.boton(v.$amarillo, v.$blanco);
+    }
+}
+
+.listado-garantia {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .garantiaDIV {
+        margin: 1rem;
+        background-color: v.$azul;
+        border-radius: .5rem;
+        
+        p{
+            color: v.$blanco;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .seriales {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}
+.opciones {
+    display: block;
+    @include m.desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .estado-garantia,
+    .aprobado,
+    .rechazo {
+
+        &:hover{
+            cursor: pointer; 
+         }
+    }
+}
+
+.pendiente {
+    display: block;
+    margin: 1rem auto;
+    background-color: v.$amarillo;
+    border: none;
+    border-radius: .5rem;
+    padding: 2.5rem;
+    color: v.$blanco;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition-property: background-color;
+    transition-duration: 300ms;
+
+    &:hover{
+        background-color: darken(v.$amarillo, 10%);
+    }
+}
+
+.aprobado {
+    display: block;
+    margin: 1rem auto;
+    background-color: green;
+    border: none;
+    border-radius: .5rem;
+    padding: 2.5rem;
+    color: v.$blanco;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition-property: background-color;
+    transition-duration: 300ms;
+
+    &:hover{
+        background-color: darken(green, 10%);
+    }
+}
+
+.rechazo {
+    display: block;
+    margin: 1rem auto;
+    background-color: v.$rojo;
+    border: none;
+    border-radius: .5rem;
+    padding: 2.5rem;
+    color: v.$blanco;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition-property: background-color;
+    transition-duration: 300ms;
+
+    &:hover{
+        background-color: darken(v.$rojo, 10%);
+    }
+}
