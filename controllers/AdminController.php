@@ -9,6 +9,7 @@ class AdminController {
         isAdmin();
         
         $router->render('/admin/index', [
+            'titulo' => 'Dash Administrador'
 
         ]);
     }

@@ -8,6 +8,15 @@ use MVC\Router;
 class LoginController {
 
     public static function login (Router $router) {
+
+
+        if(!isset($_SESSION)){
+            if($_SESSION['admin']){
+                header('Location: /admin');
+            }
+
+            header('location: /asesor');
+        }
         
         $auth = new Usuario;
         $alertas = [];
@@ -45,6 +54,7 @@ class LoginController {
 
         $alertas = Usuario::getAlertas();        
         $router->render('auth/login', [
+            'titulo' => 'Iniciar Sesion',
             'alertas' => $alertas
         ]);
     }

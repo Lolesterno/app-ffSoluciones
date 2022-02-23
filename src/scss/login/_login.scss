@@ -1,0 +1,36 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .tarjeta {
+        margin: auto 5rem;
+        width: 100%;
+        .titulo {
+            margin: 5rem auto;
+            font-size: 5rem;
+            text-transform: uppercase;
+            font-weight: 700 ;
+    }
+    }
+
+}
+
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 50%
+    }
+}
+
+.boton-iniciar {
+    @include m.boton(v.$azul, v.$blanco);
+    
+}
