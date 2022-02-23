@@ -41,7 +41,7 @@ $router->get('/crear', [ProductosController::class, 'crear']);
 $router->post('/crear', [ProductosController::class, 'crear']);
 $router->get('/editar-producto', [ProductosController::class, 'editar']);
 $router->post('/editar-producto', [ProductosController::class, 'editar']);
-$router->post('/productos/eliminar', [ProductosController::class, 'eliminar']);
+//$router->post('/productos/eliminar', [ProductosController::class, 'eliminar']);
 
 //Usuarios
 $router->get('/usuarios', [UsuariosController::class, 'index']);
@@ -82,7 +82,8 @@ $router->get('/garantia', [GarantiasController::class, 'garantia']);
 //Api Para garantias
 $router->get('/api/garantia', [GarantiaController::class, 'index']);
 $router->post('/api/garantia', [GarantiaController::class, 'crear']);
-$router->post('/api/garantia/actualizar', [GarantiaController::class, 'actualizar']);
+$router->post('/api/garantiaActualizar', [GarantiaController::class, 'actualizar']);
+$router->get('/api/garantiaBuscar', [GarantiaController::class, 'buscar']);
 
 
 //Comprobar las rutas

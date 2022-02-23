@@ -76,6 +76,9 @@
             generarPDFHidrometrica.dataset.estadoGarantia = garantia.estado;
             generarPDFHidrometrica.dataset.idGarantia = garantia.id;
             generarPDFHidrometrica.textContent = 'Generar PDF';
+            generarPDFHidrometrica.addEventListener('click', function(){
+                mostrarGenerar(garantia.id);
+            });
 
             const estadoAprovado = document.createElement('BUTTON');
             estadoAprovado.classList.add('aprobado');
@@ -104,6 +107,68 @@
 
         })
 
+    }
+
+    async function mostrarGenerar(id) {
+        try {
+            const url = `/api/garantiaBuscar?id=${id}`
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+            
+            if(resultado === 'error'){
+                mostrarAlerta(resultado.mensaje, resultado.tipo, document.querySelector('.formulario legend'))
+            }
+
+            mostrarModalGenerar(resultado)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function mostrarModalGenerar(resultado) {
+        const modal = document.createElement('DIV');
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <form class="formulario" enctype="multipart/form-data">
+                <legend>Generar PDF</legend>
+                <div class="campo">
+                    <label for="seriales">Seriales</label>
+                    <input type="text" id="seriales" name="seriales" value="${resultado.serialMedidor}">
+                </div>
+
+                <div class="opciones">
+                    <input type="submit" value="Generar PDF" class="GenerarPDF boton-crear">
+                    <button type="button" class="cerrar-modal">Cancelar</button>
+                </div>
+            </form>
+        `;  
+
+        setTimeout(() => {
+            const formulario = document.querySelector('.formulario');
+            formulario.classList.add('animar');
+        }, 0);
+
+        modal.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            if (e.target.classList.contains('cerrar-modal')) {
+                const formulario = document.querySelector('.formulario');
+                formulario.classList.add('cerrar');
+                setTimeout(() => {
+                    modal.remove();
+                }, 500);
+            }
+
+            if (e.target.classList.contains('GenerarPDF')) {
+                generarPDFGarantia(resultado.id);
+            }
+        });
+        document.querySelector('.todo').appendChild(modal);
+    }
+
+    async function generarPDFGarantia(id) {
+        console.log('generandoPDF'+id)
     }
 
 

@@ -62,4 +62,27 @@ class GarantiaController {
             
         }
     }
+
+    public static function buscar() {
+        $id = $_GET['id'];
+
+        $garantia =  Garantia::where('id', $id);  
+
+        if(!$garantia) {
+            $respuesta = [
+                'tipo' => 'error',
+                'id' => $id,
+                'mensaje' => 'La garantia no existe'
+            ];
+            echo json_encode($respuesta);
+            return;
+        }
+
+        echo json_encode($garantia);
+
+    }
+
+    public static function generarPDF() {
+        $id = $_GET['id'];
+    }
 }
