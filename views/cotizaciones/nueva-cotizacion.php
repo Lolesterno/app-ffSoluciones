@@ -34,10 +34,8 @@
             </div>
 
             <div class="campo">
-                <label for="departamento">Departamento: </label>
-                <select name="departamento" id="departamento">
-                    <option value="0">--Seleccione un departamento--</option>
-                </select>
+                <label for="telefono">Telefono: </label>
+                <input type="number" name="telefono" id="telefono">
             </div> 
         </div>
         
