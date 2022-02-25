@@ -10,16 +10,14 @@ body {
     min-height: 100%;
     background-color: v.$blanco;
     color: v.$negro;
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
 } 
 
-body {
-    font-family: v.$fuente_principal;
-    font-size: 1.6rem;
-}
 
 .contenedor {
     width: 95%;

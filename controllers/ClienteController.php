@@ -13,7 +13,8 @@ class ClienteController {
         $alertas = [];
 
         $router->render('/clientes/index', [
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Clientes'
         ]);
     }
 
@@ -53,7 +54,8 @@ class ClienteController {
             'alertas' => $alertas,
             'cliente' => $cliente,
             'departamentos' => $departamentos,
-            'usuarios' => $usuarios
+            'usuarios' => $usuarios,
+            'titulo' => 'Crear Cliente'
         ]);
     }
 
@@ -87,9 +89,10 @@ class ClienteController {
         $alertas = Cliente::getAlertas();
         $router->render('/clientes/editar-cliente',[
             'alertas' => $alertas,
-            'clientes' => $clientes,
+            'cliente' => $clientes,
             'departamentos' => $departamentos,
-            'usuarios' => $usuarios
+            'usuarios' => $usuarios,
+            'titulo' => 'Editar Cliente'
         ]);
     }
 }

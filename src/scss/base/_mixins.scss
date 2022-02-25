@@ -17,6 +17,12 @@
     }
 }
 
+@mixin desktopLG {
+    @media (min-width: v.$desktopLG) {
+        @content;
+    }
+}
+
 
 @mixin boton($bgColor, $colorTexto) {
     background-color: $bgColor;

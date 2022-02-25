@@ -1,0 +1,139 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.botoncrear {
+
+    display: flex;
+    justify-content: right;
+
+    .crear-cliente {
+        padding: 1rem;
+        color: v.$blanco;
+        background-color: v.$azul;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1rem;
+        transition-property: background-color border-radius;
+        transition-duration: 300ms;
+
+        &:hover {
+            background-color: darken(v.$azul, 10%);
+            border-radius: .5rem;
+        }
+    }
+}
+
+.clientes {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    @include m.desktopLG {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cliente {
+        margin: 2rem 0;
+        background-color: lighten(v.$azul, 10%);
+        padding: 1rem;
+        transition-property: all;
+        transition-duration: 300ms;
+
+        .nit-cliente {
+            text-align: center;
+            font-weight: 700;
+            color: v.$blanco;
+            
+        }
+
+        .datos-cliente {
+            @include m.desktop {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 2rem;
+            }
+        }
+        
+
+        p {
+            text-align: center;
+            line-height: 2.5rem;
+            text-transform: capitalize; 
+        }
+
+        &:hover {
+            border-radius: 1rem;
+            background-color: darken(v.$azul, 10%);
+        }
+    }
+}
+
+.divBoton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    .editar-cliente {
+        padding: 1rem;
+        background-color: v.$amarillo;
+        color: darken(v.$blanco, 5%);
+        font-size: 2rem;
+        font-weight: 700;
+        transition-property: background-color border-radius;
+        transition-duration: 300ms;
+
+        &:hover {
+            background-color: darken(v.$amarillo, 10%);
+            border-radius: .5rem;
+        }
+    }
+}
+
+.volver {
+    display: block;
+    text-align: center;
+    @include m.tablet {
+        display: inline-block;
+    }
+    padding: 1rem 2.5rem;
+    color: v.$blanco;
+    background-color: v.$azul;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem;
+    transition-property: background-color border-radius;
+    transition-duration: 300ms;
+
+    &:hover {
+        background-color: darken(v.$azul, 10%);
+        border-radius: .5rem;
+    }
+}
+
+.boton-general {
+    display: flex;
+    justify-content: center;
+
+    button[type="submit"] {
+
+        border: none;
+        padding: 1rem 2.5rem;
+        color: v.$blanco;
+        background-color: v.$azul;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1rem;
+        transition-property: background-color border-radius;
+        transition-duration: 300ms;
+
+        &:hover {
+            background-color: darken(v.$azul, 10%);
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+
+    }
+}

@@ -1,32 +1,29 @@
-<h2>Productos FF Soluciones</h2>
+<?php include_once __DIR__ .'/../templates/header.php' ?>
 
 <?php include_once __DIR__ .'/../templates/alertas.php' ?>
 
-<div id="productos" class="secciones">
+<form action="/api/buscarProducto" class="buscador">
+    <input type="search" name="buscarProducto"  placeholder="Codigo o Nombre del Producto">
+    <button type="" class="boton-crear" id="buscador"><i class="bi bi-search"></i></button>
+</form>
 
-    <div class="botones-superior">
-        <a href="/generar-pdf" class="boton boton-pequeño">Descargar lista de productos</a>
-        <?php if($_SESSION['admin'] ?? null){ ?>
-            <a href="/crear" class="boton-crear">Nuevo Producto</a>
-        <?php } ?>
-    </div>
-
-    <form action="/api/buscarProducto" class="buscador">
-        <input type="search" name="buscarProducto"  placeholder="Codigo o Nombre del Producto">
-        <button type="" class="boton-crear" id="buscador">Buscar</button>
-    </form>
-   
-
-    <div class="resultado">
-        <!--Resultado con JS-->
-    </div>
-
-
-    <div id="listado-productos" class="listado-productos">
-        <!--Productos llegados con JS-->
-    </div>
-
+<div class="botones-superior">
+    <a href="/generar-pdf"><i class="bi bi-cloud-download-fill"></i> Descargar lista de productos</a>
+    <?php if( isset($_SESSION['admin']) ){ ?>
+        <a href="/crear"><i class="bi bi-bag-plus-fill"></i> Nuevo Producto</a>
+    <?php } ?>
 </div>
+
+<div class="resultado">
+    <!--Resultado con JS-->
+</div>
+
+
+<div id="productos" class="productos">
+    <!--Productos llegados con JS-->
+</div>
+
+
 
 <?php
 

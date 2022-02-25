@@ -17,7 +17,8 @@ class ProductosController {
         
         $router->render('productos/index', [
             'productos' => $productos,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Productos'
         ]);
     }
 
@@ -85,7 +86,8 @@ class ProductosController {
         $router->render('productos/crear',[
             'alertas' => $alertas,
             'categorias' => $categorias,
-            'productos' => $productos
+            'productos' => $productos,
+            'titulo' => 'Nuevo Producto'
         ]);
     }
 
@@ -127,8 +129,9 @@ class ProductosController {
         
         $router->render('productos/editar-producto', [
             'alertas' => $alertas,
-            'producto' => $producto,
-            'categorias' => $categorias
+            'productos' => $producto,
+            'categorias' => $categorias,
+            'titulo' => 'Editar Producto '.$producto->nombre
         ]);
     }
 

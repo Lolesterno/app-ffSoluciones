@@ -27,5 +27,8 @@
     "numeral": "^2.0.6",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.8.1"
   }
 }

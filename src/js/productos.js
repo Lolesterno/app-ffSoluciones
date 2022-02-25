@@ -33,13 +33,14 @@
             imagenProducto.setAttribute('alt', 'Imagen del Producto');
     
             const imagenDIV = document.createElement('DIV');
-            imagenDIV.classList.add('imagen-producto');
+            imagenDIV.classList.add('imagen');
             imagenDIV.appendChild(imagenProducto);
     
             const nombreProducto = document.createElement('H3');
             nombreProducto.textContent = nombre;
     
-            const codigoProducto = document.createElement('H3');
+            const codigoProducto = document.createElement('h3');
+            codigoProducto.classList.add('codigo')
             codigoProducto.textContent = codigo;
     
             const descripcionProducto = document.createElement('P');
@@ -50,34 +51,22 @@
     
             const diametroProducto = document.createElement('H4');
             diametroProducto.textContent = diametro;
+
+            const datosPrecioDiametro = document.createElement('DIV');
+            datosPrecioDiametro.classList.add('datos-precio');
+            datosPrecioDiametro.appendChild(diametroProducto);
+            datosPrecioDiametro.appendChild(precioProducto);
             
             const botonEditarProducto = document.createElement('A');
             botonEditarProducto.setAttribute('href', `/editar-producto?id=${id}`);
-            botonEditarProducto.classList.add('boton-crear');
+            botonEditarProducto.classList.add('editar');
             botonEditarProducto.textContent = 'Editar Producto';        
     
-            const formularioBorrar = document.createElement('FORM');
-            formularioBorrar.action = '/productos/eliminar';
-            formularioBorrar.method = 'POST';
-    
-            const idBorrar = document.createElement('INPUT');
-            idBorrar.type = 'hidden';
-            idBorrar.value = id;
-            idBorrar.name = 'id';
-    
-            const enviarBorrar = document.createElement('INPUT');
-            enviarBorrar.type = 'submit';
-            enviarBorrar.value = 'Borrar Producto';
-            enviarBorrar.classList.add('boton-borrar');
-    
-            formularioBorrar.appendChild(idBorrar);
-            formularioBorrar.appendChild(enviarBorrar);
-    
             const botonesAgrupar = document.createElement('DIV');
-            botonesAgrupar.classList.add('acciones');
+            botonesAgrupar.classList.add('accion');
     
             botonesAgrupar.appendChild(botonEditarProducto);
-            botonesAgrupar.appendChild(formularioBorrar);
+
     
             const productoDiv = document.createElement('DIV');
             productoDiv.classList.add('producto');
@@ -87,13 +76,12 @@
             productoDiv.appendChild(nombreProducto);
             productoDiv.appendChild(codigoProducto);
             productoDiv.appendChild(descripcionProducto);
-            productoDiv.appendChild(diametroProducto);
-            productoDiv.appendChild(precioProducto);
+            productoDiv.appendChild(datosPrecioDiametro);
             productoDiv.appendChild(botonesAgrupar);
     
             
     
-            const listar = document.querySelector('#listado-productos');
+            const listar = document.querySelector('#productos');
             listar.appendChild(productoDiv);
             
         })

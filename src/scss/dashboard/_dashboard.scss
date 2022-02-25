@@ -2,7 +2,7 @@
 @use 'base/mixins' as m;
 
 .dashboard {
-    background-color: lighten(v.$gris, 60%);
+    background-color: lighten(v.$gris, 75%);
 
     @include m.tablet {
         display: flex;

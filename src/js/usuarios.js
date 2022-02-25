@@ -17,7 +17,7 @@
         usuarios.forEach( usuario => {
             const { id, nombre, apellido, email, telefono, user } = usuario;
      
-            const nombreUsuario = document.createElement('P');
+            const nombreUsuario = document.createElement('H3');
             nombreUsuario.classList.add('nombre-usuario');
             nombreUsuario.textContent = `${nombre} ${apellido}`;
     
@@ -34,9 +34,13 @@
             telefonoUsuario.textContent = telefono;
     
             const botonEditar = document.createElement('A');
-            botonEditar.classList.add('boton-crear');
+            botonEditar.classList.add('editar-cliente');
             botonEditar.setAttribute('href', `/editar?id=${id}`);
             botonEditar.textContent = 'Editar Usuario';
+
+            const divBoton = document.createElement('DIV');
+            divBoton.classList.add('divBoton');
+            divBoton.appendChild(botonEditar)
     
             const usuarioDIV = document.createElement('DIV');
             usuarioDIV.classList.add('usuario');
@@ -46,7 +50,7 @@
             usuarioDIV.appendChild(emailUsuario);
             usuarioDIV.appendChild(userName);
             usuarioDIV.appendChild(telefonoUsuario);
-            usuarioDIV.appendChild(botonEditar);
+            usuarioDIV.appendChild(divBoton);
     
     
             document.querySelector('#usuario').appendChild(usuarioDIV);

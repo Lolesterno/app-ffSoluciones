@@ -11,7 +11,7 @@ class AsesorController {
         isAuth();
 
         $router->render('/asesor/index', [
-            
+            'titulo' => 'Inicio Asesor'
         ]);
     }
 }

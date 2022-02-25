@@ -1,1 +1,1 @@
-<h1>Pagina del Asesor</h1>
+<?php include_once __DIR__ .'/../templates/header.php' ?>

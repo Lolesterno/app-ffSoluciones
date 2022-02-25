@@ -14,7 +14,8 @@ class UsuariosController {
         $alertas = [];
         
         $router->render('/usuarios/index',[
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Usuarios'
         ]);
     }
 
@@ -56,7 +57,8 @@ class UsuariosController {
 
         $router->render('/usuarios/crear-usuario', [
             'usuario' => $usuario,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Crear Usuario'
         ]);
     }
 
@@ -89,9 +91,10 @@ class UsuariosController {
 
         $alertas = Usuario::getAlertas();
         $router->render('/usuarios/editar', [
-            'usuarios' => $usuarios,
+            'usuario' => $usuarios,
             'alertas' => $alertas,
-            'roles' => $roles
+            'roles' => $roles,
+            'titulo' => 'Editar Usuario'
         ]);
     }
 }
