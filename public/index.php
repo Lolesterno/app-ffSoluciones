@@ -64,6 +64,8 @@ $router->post('/crear-cliente', [ClienteController::class, 'crear']);
 *Index y paginas de muestra* */
 
 $router->get('/cotizaciones', [CotizacionController::class, 'index']);
+$router->get('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
+$router->post('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
 $router->get('/api/buscarClientes', [APIController::class, 'buscarClientes']);
 $router->get('/api/buscarProductos', [APIController::class, 'buscarProductos']);
 $router->get('/api/buscarProducto', [APIController::class, 'buscarProducto']);

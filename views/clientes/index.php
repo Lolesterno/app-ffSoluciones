@@ -4,7 +4,7 @@
 
 <?php if( isset($_SESSION['admin']) ) : ?>
     <div class="botoncrear">
-        <a href="/crear-cliente" class="crear-cliente"><i class="bi bi-person-plus-fill"></i> Nuevo Cliente</a>
+        <a href="/crear-cliente" class="crear"><i class="bi bi-person-plus-fill"></i> Nuevo Cliente</a>
     </div>
 <?php endif ?>
 

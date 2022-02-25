@@ -1,0 +1,119 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.cotizaciones {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .cotizacion {
+        padding: 2rem;
+        margin: 1rem;
+
+        .nit {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: v.$blanco;
+            text-transform: capitalize;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .datosCiudad {
+            text-align: center;
+            @include m.tablet {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        h4 {
+            text-align: center;
+            color: v.$blanco;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .opciones {
+            display: grid;
+            @include m.telefono {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            button {
+                border: none;
+                padding: 2rem;
+                margin: .5rem;      
+                color: v.$blanco;
+                font-weight: 700;
+                transition-property: all;
+                transition-duration: 300ms; 
+
+                &.ver-oferta {
+                    background-color: lighten(v.$amarillo, 10%);
+                    &:hover {
+                        background-color: darken(v.$amarillo, 10%);
+                        border-radius: .5rem;
+                    }
+                }
+
+                &.aprobar-oferta {
+                    background-color: lighten(v.$verde, 10%);
+                    &:hover {
+                        background-color: darken(v.$verde, 10%);
+                        border-radius: .5rem;
+                    }
+                }
+
+                &.anular-oferta {
+                    background-color: lighten(v.$rojo, 10%);
+                    &:hover {
+                        background-color: darken(v.$rojo, 10%);
+                        border-radius: .5rem;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
+}
+
+.estado {
+    background-color: lighten(v.$azul, 10%);
+    transition-property: all;
+    transition-duration: 300ms; 
+
+    &:hover {
+        background-color: darken(v.$azul, 10%);
+        border-radius: .5rem;
+    }
+
+    &.aceptada {
+        background-color: lighten(v.$verde, 10%);
+
+        &:hover {
+            background-color: darken(v.$verde, 10%);
+            border-radius: .5rem;
+        }
+    }
+    &.anulada {
+        background-color: lighten(v.$rojo, 10%);
+
+        &:hover {
+            background-color: darken(v.$rojo, 10%);
+            border-radius: .5rem;
+        }
+    }
+}
