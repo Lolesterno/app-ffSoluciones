@@ -44,7 +44,7 @@ class APIController {
 
     public static function buscarProductos() {
 
-        $producto = $_GET['producto'];
+        $producto = $_GET['codigo'];
 
         $productos = Producto::buscar('codigo' ,$producto);
 
@@ -83,7 +83,7 @@ class APIController {
 
     public static function buscarProducto() {
 
-        $producto =  $_GET['buscarProducto'];
+        $producto =  $_GET['codigo'];
 
         $busqueda = Producto::buscarPro($producto);
 

@@ -2,6 +2,8 @@
 (function() {
     let cliente = [];
     capturarCliente();
+    capturarProducto();
+    agregarProducto();
 
     
     function capturarCliente() {
@@ -22,7 +24,7 @@
             mostrarCliente(resultado);
 
         } catch (error) {
-            console.log(error);
+            
         }
 
         
@@ -46,8 +48,103 @@
         const telefonoCliente = document.querySelector('#telefono');
         telefonoCliente.value = telefono
 
-        console.log(cliente.cliente)
+    }
+
+    function capturarProducto () {
+        const codigoProducto = document.querySelector('#codigo');
+        codigoProducto.addEventListener('keyup', function(e){
+            const codigo = e.target.value;
+            buscarProducto(codigo);
+        })
+    }
+
+    async function buscarProducto(codigo) {
+        try {
+            const url = `/api/buscarProductos?codigo=${codigo}`;
+            const resultado = await fetch(url);
+            const respuesta = await resultado.json();
+            
+            mostrarProducto(respuesta);
+        } catch (error) {
+            const nombreProducto = document.querySelector('#producto');
+            nombreProducto.value = '';
+
+            const precioProducto = document.querySelector('#precio');
+            precioProducto.value = '';
+        }
+    }
+
+    function mostrarProducto(producto) {
+        const { id, nombre, precio } = producto.producto;
+
+        const idProducto = document.createElement('INPUT');
+        idProducto.type = 'hidden';
+        idProducto.classList.add('id')
+        idProducto.value = id;
+
+        const form = document.querySelector('.forms');
+        form.appendChild(idProducto);
+
+        const nombreProducto = document.querySelector('#producto');
+        nombreProducto.value = nombre;
+
+        const precioProducto = document.querySelector('#precio');
+        precioProducto.value = precio;
+
+
+    }
+
+    function agregarProducto() {
+
+        const formulario = document.querySelector('.forms');
+        formulario.addEventListener('submit', function(event){
+            event.preventDefault();
+       
+            const precio = document.querySelector('#precio').value;
+            const cantidad = document.querySelector('#cantidad').value;
+            const descuento = document.querySelector('#descuento').value;
+            const id = document.querySelector('.id').value;
+
+            api( precio, cantidad, descuento, id);
+
+        } );
+
+    }
+
+    async function api(precio, cantidad, descuento, id) {
+        const datos = new FormData();
+        datos.append('productoId', id);
+        datos.append('cantidad', cantidad);
+        datos.append('precio', precio);
+        datos.append('descuento', descuento);
+
+        try {
+            const url = `/api/temporal`;
+            const respuesta = await fetch(url, {
+                method: 'POST',
+                body: datos
+            });
+            const resultado = await respuesta.json();
+
+            console.log(resultado)
+
+            mostrarCotizados(resultado);
+            
+        } catch (error) {
+            
+        }
+    }
+
+    function mostrarCotizados(producto) {
+        
     }
 
 
 })();
+
+
+/*
+
+
+
+*/

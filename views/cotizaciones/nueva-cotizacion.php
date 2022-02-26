@@ -15,34 +15,34 @@
 
             <div class="campo">
                 <label for="razon">Razon Social: </label>
-                <input type="text" name="razon" id="razon">
+                <input type="text" name="razon" id="razon" disabled>
             </div>
 
             <div class="campo">
                 <label for="correo">Correo Electronico: </label>
-                <input type="text" name="correo" id="correo">
+                <input type="text" name="correo" id="correo" disabled>
             </div>
 
             <div class="campo">
                 <label for="direccion">Direccion: </label>
-                <input type="text" name="direccion" id="direccion">
+                <input type="text" name="direccion" id="direccion" disabled>
             </div>
 
             <div class="campo">
                 <label for="ciudad">Ciudad: </label>
-                <input type="text" name="ciudad" id="ciudad">
+                <input type="text" name="ciudad" id="ciudad" disabled>
             </div>
 
             <div class="campo">
                 <label for="telefono">Telefono: </label>
-                <input type="number" name="telefono" id="telefono">
+                <input type="number" name="telefono" id="telefono" disabled>
             </div> 
         </div>
         
 
         <h3>Producto</h3>
 
-        <form class="formulario">
+        <form class="formulario forms" id="formulario" >
             <div class="campo">
                 <label for="codigo">Codigo del Producto: </label>
                 <input type="text" name="codigo" id="codigo">
@@ -50,12 +50,12 @@
 
             <div class="campo">
                 <label for="producto">Nombre del Producto: </label>
-                <input type="text" name="producto" id="producto">
+                <input type="text" name="producto" id="producto" disabled>
             </div>
 
             <div class="campo">
                 <label for="precio">Precio del Producto: </label>
-                <input type="text" name="precio" id="precio">
+                <input type="text" name="precio" id="precio" disabled>
             </div>
 
             <div class="campo">
@@ -69,7 +69,7 @@
             </div>
 
             <div class="botoncrear">
-                <button type="submit" class="crear" id="crear">Agregar Producto</button>
+                <input type="submit" class="crear" id="crear" value="Agregar Producto">
             </div>
         </form>
 
@@ -90,44 +90,7 @@
             </div>
         </div>
 
-        <div class="producto-cotizado">
-            <p class="item">1</p>
-            <h3>Nombre del Producto</h3>
-            <h4>$.123.456</h4>
-            <div class="cantidad-descuento">
-                <p>25 UND</p>
-                <p>25%</p>
-            </div>
-            <div class="borrar-producto">
-                <button type="button"><i class="bi bi-trash-fill"></i></button>
-            </div>
-        </div>
-
-        <div class="producto-cotizado">
-            <p class="item">1</p>
-            <h3>Nombre del Producto</h3>
-            <h4>$.123.456</h4>
-            <div class="cantidad-descuento">
-                <p>25 UND</p>
-                <p>25%</p>
-            </div>
-            <div class="borrar-producto">
-                <button type="button"><i class="bi bi-trash-fill"></i></button>
-            </div>
-        </div>
-
-        <div class="producto-cotizado">
-            <p class="item">1</p>
-            <h3>Nombre del Producto</h3>
-            <h4>$.123.456</h4>
-            <div class="cantidad-descuento">
-                <p>25 UND</p>
-                <p>25%</p>
-            </div>
-            <div class="borrar-producto">
-                <button type="button"><i class="bi bi-trash-fill"></i></button>
-            </div>
-        </div>
+        
 
     </div>
 </div>

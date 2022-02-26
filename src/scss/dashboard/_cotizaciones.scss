@@ -117,3 +117,26 @@
         }
     }
 }
+
+.borrar-producto{
+    text-align: right;
+
+    button {
+        border: none;
+        background-color: v.$rojo;
+        padding: 1rem;
+        margin: .5rem;      
+        color: v.$blanco;
+        font-size: 2rem;
+        font-weight: 700;
+        border-radius: .5rem;
+        transition-property: all;
+        transition-duration: 300ms; 
+
+        &:hover {
+            background-color: lighten(v.$rojo, 10%);
+            border-radius: 0;
+            cursor: pointer;
+        }
+    }
+}
