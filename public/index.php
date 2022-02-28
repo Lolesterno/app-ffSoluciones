@@ -63,29 +63,26 @@ $router->post('/crear-cliente', [ClienteController::class, 'crear']);
 
 *Index y paginas de muestra* */
 
-$router->get('/cotizaciones', [CotizacionController::class, 'index']);
-$router->get('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
-$router->post('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
-$router->get('/api/buscarClientes', [APIController::class, 'buscarClientes']);
-$router->get('/api/buscarProductos', [APIController::class, 'buscarProductos']);
-$router->get('/api/buscarProducto', [APIController::class, 'buscarProducto']);
-$router->get('/api/temporal',[APIController::class, 'temporal']);
-$router->post('/api/temporal',[APIController::class, 'temporal']);
-$router->get('/api/buscarTemporal',[APIController::class, 'buscarTemporal']);
+// $router->get('/cotizaciones', [CotizacionController::class, 'index']);
+// $router->get('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
+// $router->post('/nueva-cotizacion', [CotizacionController::class, 'nueva']);
+// $router->get('/api/buscarClientes', [APIController::class, 'buscarClientes']);
+// $router->get('/api/buscarProductos', [APIController::class, 'buscarProductos']);
+// $router->get('/api/buscarProducto', [APIController::class, 'buscarProducto']);
+// $router->get('/api/temporal',[APIController::class, 'temporal']);
+// $router->post('/api/temporal',[APIController::class, 'temporal']);
+// $router->get('/api/temporalProductos',[APIController::class, 'temporalProductos']);
+// $router->get('/api/totales',[APIController::class, 'totales']);
 
 
 
 /* *Garantias* */
 $router->get('/garantias', [GarantiasController::class, 'index']);
-$router->get('/crear-garantia', [GarantiasController::class, 'crear']);
-$router->post('/crear-garantia', [GarantiasController::class, 'crear']);
-$router->get('/garantia', [GarantiasController::class, 'garantia']);
+$router->get('/nueva-garantia', [GarantiasController::class, 'crear']);
+$router->post('/nueva-garantia', [GarantiasController::class, 'crear']);
+
 
 //Api Para garantias
-$router->get('/api/garantia', [GarantiaController::class, 'index']);
-$router->post('/api/garantia', [GarantiaController::class, 'crear']);
-$router->post('/api/garantiaActualizar', [GarantiaController::class, 'actualizar']);
-$router->get('/api/garantiaBuscar', [GarantiaController::class, 'buscar']);
 
 
 //Comprobar las rutas

@@ -26,4 +26,10 @@ class TemporalProducto extends ActiveRecord {
         $result = self::consultarSQL( $query );  
         return $result;
     }
+
+    public static function totales($token) {
+        $query = 'SELECT precio, cantidad, descuento FROM '.self::$tabla. ' WHERE token = '.$token." ;";
+        $result = self::consultarSQL( $query );
+        return $result;
+    }
 }

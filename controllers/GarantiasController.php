@@ -3,7 +3,7 @@
 namespace controllers;
 
 use MVC\Router;
-use Model\Garantia;
+
 use Model\Garantias;
 use Model\CategoriaMedidor;
 
@@ -12,13 +12,11 @@ class GarantiasController {
 
         isAuth();
         isAdmin();
-        $id = $_SESSION['id'];
-
-        $garantias = Garantias::belongsTo('usuarioId', $id );
-
-                        
+        $alertas = [];
+                                
         $router->render('/garantias/index', [
-            'garantias' => $garantias
+            'titulo' => 'Garantias',
+            'alertas' => $alertas
         ]);
     }
 
@@ -49,7 +47,8 @@ class GarantiasController {
         }
         
         $router->render('/garantias/crear-garantia', [
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'titulo' => 'Nueva Garantia'
         ]);
     }
 

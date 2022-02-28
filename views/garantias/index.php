@@ -1,16 +1,40 @@
-<h1>Garantias</h1>
+<?php   include_once __DIR__ .'/../templates/header.php';
+        include_once __DIR__ .'/../templates/alertas.php';?>
 
-<?php if( count($garantias) === 0 ){ ?>
-    <p class="no-garantias">No hay Garantias Creadas <a href="/crear-garantia">Crear una nueva Garantia</a></p>
-<?php } else { ?>
-    <a href="/crear-garantia" class="nueva-garantia">Crear una nueva Garantia</a>
-    <ul class="listado-garantias">
-        <?php foreach($garantias as $garantia): ?>
-            <li class="garantia">
-                <a href="/garantia?url=<?php echo $garantia->url ?>">
-                    <?php echo $garantia->nombreCliente ?>
-                </a>
-            </li>
-        <?php endforeach ?>
-    </ul>
-<?php } ?>
+<div class="botoncrear">
+    <a href="/nueva-garantia" class="crear"><i class="bi bi-person-plus-fill"></i> Crear nueva Garantia</a>
+</div>
+
+
+<div class="garantias">
+    <div class="garantia pendiente">
+        <p class="num-garantia">Garantia # 1</p>
+        <h3>Empresa de la garantia</h3>
+        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
+        <h4>Nit: 123456789</h4>
+        <h5>Tipo Medidor</h5>
+        <h5>21-999999,...</h5>
+        <p>Comentarios de kelly</p>
+    </div>
+
+    <div class="garantia aceptada">
+        <p class="num-garantia">Garantia # 1</p>
+        <h3>Empresa de la garantia</h3>
+        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
+        <h4>Nit: 123456789</h4>
+        <h5>Tipo Medidor</h5>
+        <h5>21-999999,...</h5>
+        <p>Comentarios de kelly</p>
+    </div>
+
+    <div class="garantia rechazada">
+        <p class="num-garantia">Garantia # 1</p>
+        <h3>Empresa de la garantia</h3>
+        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
+        <h4>Nit: 123456789</h4>
+        <h5>Tipo Medidor</h5>
+        <h5>21-999999,...</h5>
+        <p>Comentarios de kelly</p>
+    </div>
+</div>
+

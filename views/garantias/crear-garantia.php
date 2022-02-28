@@ -1,12 +1,20 @@
-<h1>Crear Nueva Garantia</h1>
+<?php   include_once __DIR__ .'/../templates/header.php';
+        include_once __DIR__ .'/../templates/alertas.php';
+?>
 
-<div class="contenedor-sm">
-    <?php ?>
-    <form action="/crear-garantia" method="POST" class="formulario">
-        <div class="campo">
-            <label for="nombreCliente">Nombre del Cliente</label>
-            <input type="text" name="nombreCliente" id="nombreCliente" placeholder="Nombre del Cliente">
-        </div>
-        <input type="submit" value="Crear Garantia" class="boton-crear">
-    </form>
-</div>
+<a href="/garantias" class="volver">&laquo; Volver</a>
+
+
+<form method="post" class="formulario" enctype="multipart/form-data">
+    <?php include_once __DIR__ .'/formulario.php' ?>
+
+    <div class="botoncrear">
+        <button type="submit" class="crear">Crear Garantia</button>
+    </div>
+</form>
+
+<?php 
+
+    $script = '<script src="/build/js/garantias.js"></script>'
+
+?>

@@ -7,12 +7,12 @@
 
     <nav class="sidebar-nav">
         <a class="<?php echo ($titulo === 'Clientes') ? 'activo' : ''; ?>" href="/clientes"><i class="bi bi-people-fill"></i> Clientes</a>
-        <a class="<?php echo ($titulo === 'Cotizaciones') ? 'activo' : ''; ?>" href="/cotizaciones"><i class="bi bi-list-ol"></i> Cotizaciones</a>
+        <!-- <a class="<?php echo ($titulo === 'Cotizaciones') ? 'activo' : ''; ?>" href="/cotizaciones"><i class="bi bi-list-ol"></i> Cotizaciones</a> -->
         <a class="<?php echo ($titulo === 'Productos') ? 'activo' : ''; ?>" href="/productos"><i class="bi bi-bag-fill"></i> Productos</a>
 
         <?php if(isset($_SESSION['admin'])): ?>
             <a class="<?php echo ($titulo === 'Usuarios') ? 'activo' : ''; ?>" href="/usuarios"><i class="bi bi-person-fill"></i> Usuarios</a>
-            <a class="<?php echo ($titulo === 'Garantias') ? 'activo' : ''; ?>" href="">Garantias</a>
+            <a class="<?php echo ($titulo === 'Garantias') ? 'activo' : ''; ?>" href="/garantias">Garantias</a>
             <a class="<?php echo ($titulo === 'Despachos') ? 'activo' : ''; ?>" href="">Despachos</a>
             <a class="<?php echo ($titulo === 'Mercancia Asegurada') ? 'activo' : ''; ?>" href="">Mercancia Asegurada</a>
         <?php endif ?>

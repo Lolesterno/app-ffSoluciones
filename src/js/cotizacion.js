@@ -1,9 +1,11 @@
 
 (function() {
     let cliente = [];
+    let productos = [];
     capturarCliente();
     capturarProducto();
     agregarProducto();
+    mostrarDatos();
 
     
     function capturarCliente() {
@@ -126,18 +128,123 @@
             });
             const resultado = await respuesta.json();
 
-            console.log(resultado)
-
-            mostrarCotizados(resultado);
+            apiCotizados(resultado);
             
         } catch (error) {
             
         }
     }
 
-    function mostrarCotizados(producto) {
-        
+    async function apiCotizados(res) {
+        try {
+            const url = `/api/temporalProductos?token=${res.token}`;
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+
+            productos = resultado.producto
+            mostrarDatos();
+            totales(res.token)
+        } catch (error) {
+            
+        }
     }
+
+    function mostrarDatos() {
+        console.log(productos)
+        
+        limpiarDatos();
+
+        if(productos.length === 0) {
+            const contenedor = document.querySelector('.productos-cotizados');
+            const textoNoProductos = document.createElement('H3');
+            textoNoProductos.textContent = 'No hay datos';
+            textoNoProductos.classList.add('noDatos');
+
+            contenedor.appendChild(textoNoProductos);
+            return;
+        }
+
+        const estatus = {
+            0 : 'pendiente',
+            1 : 'aprovada',
+            2 : 'anulada' 
+        }
+
+        numeracion();
+
+
+        productos.forEach(producto => {
+
+            const divBotonBorrar = document.createElement('DIV');
+            divBotonBorrar.classList.add('borrar-producto');
+
+            const botonBorrar = document.createElement('BUTTON');
+            botonBorrar.classList.add('boton');
+            botonBorrar.textContent = 'Borrar'
+            botonBorrar.addEventListener('click', function(){
+                borrarProducto(producto.id)
+            });
+
+            divBotonBorrar.appendChild(botonBorrar)
+            
+            const cotizado = document.createElement('DIV');
+            cotizado.classList.add('producto-cotizado');
+            cotizado.dataset.id = producto.id;
+
+            const nombreProducto =  document.createElement('H3');
+            nombreProducto.textContent = producto.nombre;
+
+            const precioProducto = document.createElement('H4');
+            precioProducto.textContent = `$.${producto.precio}`;
+
+            const cantidadDescuento = document.createElement('DIV');
+            cantidadDescuento.classList.add('cantidad-descuento');
+
+            const descuentoProducto = document.createElement('P');
+            descuentoProducto.textContent = producto.descuento;
+
+            const unidadesProducto = document.createElement('P');
+            unidadesProducto.textContent = producto.cantidad
+
+            cantidadDescuento.appendChild(unidadesProducto);
+            cantidadDescuento.appendChild(descuentoProducto);
+
+            cotizado.appendChild(nombreProducto);
+            cotizado.appendChild(precioProducto);
+            cotizado.appendChild(cantidadDescuento);
+            cotizado.appendChild(divBotonBorrar);
+
+            const base = document.querySelector('.productos-cotizados');
+            base.appendChild(cotizado);
+        });
+
+    }
+
+    async function totales(token){
+        try {
+            const url = `/api/totales?token=${token}`;
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+
+            console.log(resultado);
+        } catch (error) {
+            
+        }
+    }
+
+    function borrarProducto(res) {
+        console.log(res);
+    }
+
+
+    function limpiarDatos() {
+        const listadoDatos = document.querySelector('.productos-cotizados');
+
+        while (listadoDatos.firstChild) {
+            listadoDatos.removeChild(listadoDatos.firstChild);
+        }
+    }
+
 
 
 })();

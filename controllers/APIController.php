@@ -97,13 +97,30 @@ class APIController {
 
     }
 
-    public static function buscarTemporal() {
+    public static function temporalProductos() {
 
         $token = $_GET['token'];
 
         $productoToken = TemporalProducto::perBusqueda($token);
         
         echo json_encode(['producto' => $productoToken]);
+
+    }
+
+    public static function totales() {
+        $token = $_GET['token'];
+
+        $totales = TemporalProducto::totales($token);
+
+        $subtotal = 0;
+        $iva = 0;
+
+        foreach($totales as $total) {
+
+            $subtotal = $total->precio * $total->cantidad;
+            
+            debugear($subtotal);
+        }
 
     }
 
