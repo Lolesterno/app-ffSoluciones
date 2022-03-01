@@ -7,34 +7,19 @@
 
 
 <div class="garantias">
-    <div class="garantia pendiente">
-        <p class="num-garantia">Garantia # 1</p>
-        <h3>Empresa de la garantia</h3>
-        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
-        <h4>Nit: 123456789</h4>
-        <h5>Tipo Medidor</h5>
-        <h5>21-999999,...</h5>
-        <p>Comentarios de kelly</p>
-    </div>
+    <?php foreach($todas as $garantia): ?>
+        <div class="garantia <?php echo $garantia->estado ?>">
+            <?php $garantia->estado === 0 ?? 'pendiente' ?>
+            <p class="num-garantia">Garantia #<?php echo $garantia->id ?></p>
+            <h3>Empresa de la garantia</h3>
+            <p class="fecha">Fecha de Ingreso: <?php echo $garantia->fecha ?></p>
+            <h4>Nit: 123456789</h4>
+            <h5>Tipo Medidor</h5>
+            <h5><?php echo $garantia->serialMedidor ?></h5>
+            <p><?php echo $garantia->comentarios ?></p>
+        </div>
+    <?php endforeach ?>
 
-    <div class="garantia aceptada">
-        <p class="num-garantia">Garantia # 1</p>
-        <h3>Empresa de la garantia</h3>
-        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
-        <h4>Nit: 123456789</h4>
-        <h5>Tipo Medidor</h5>
-        <h5>21-999999,...</h5>
-        <p>Comentarios de kelly</p>
-    </div>
-
-    <div class="garantia rechazada">
-        <p class="num-garantia">Garantia # 1</p>
-        <h3>Empresa de la garantia</h3>
-        <p class="fecha">Fecha de Ingreso: 20/2/22</p>
-        <h4>Nit: 123456789</h4>
-        <h5>Tipo Medidor</h5>
-        <h5>21-999999,...</h5>
-        <p>Comentarios de kelly</p>
-    </div>
+    
 </div>
 

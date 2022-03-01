@@ -227,12 +227,36 @@ class ActiveRecord {
         }
     }
 
+    //Subida de archivos
+    public function setPDF ($pdf){
+
+        //Eliminar la imagen previa
+        if(!is_null($this->id)){
+            $this->borrarPdf();
+        }
+
+
+        //Asignar el nombre de la imagen
+
+        if($pdf) {
+            $this->archivoGarantia = $pdf;
+        }
+    }
+
     //Eliminar imagen 
     public function borrarImagen() {
         //Comprovar si existe el archivo
         $existe = file_exists(CARPETA_IMAGENES . $this->imagen);
         if($existe) {
             unlink(CARPETA_IMAGENES . $this->imagen);
+        }
+    }
+
+    public function borrarpdf() {
+        //Comprovar si existe el archivo
+        $existe = file_exists(CARPETA_PDF . $this->pdf);
+        if($existe) {
+            unlink(CARPETA_PDF . $this->pdf);
         }
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 define('CARPETA_IMAGENES', $_SERVER['DOCUMENT_ROOT'] . '/imagenes/');
+define('CARPETA_PDF', $_SERVER['DOCUMENT_ROOT'] . '/garantiasArchivos/');
 
 function debugear($var) : string {
     echo '<pre>';

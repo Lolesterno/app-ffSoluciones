@@ -28,7 +28,9 @@
 <div class="campo">
     <label for="departamento">Departamento:</label>
     <select id="departamento" disabled>
-        <option value="">--Departamento--</option>
+        <?php foreach($departamentos as $departamento): ?>
+            <option value="<?php echo $departamento->id ?>"><?php echo  $departamento->departamento ?></option>
+        <?php endforeach  ?>
     </select>
 </div>
 
@@ -42,7 +44,9 @@
 <div class="campo">
     <label for="medidor">Tipo de medidor:</label>
     <select name="medidorId" id="medidor">
-        <option value="">--Seleccione una opcion--</option>
+        <?php foreach($medidores as $medidor): ?>
+            <option value="<?php echo $medidor->id ?>"><?php echo $medidor->tipo_medidor ?></option>
+        <?php endforeach ?>
     </select>
 </div>
 
@@ -55,6 +59,9 @@
     <label for="tipoFactura">Tipo de Factura</label>
     <select name="tipoFactura" id="tipoFactura">
         <option value="">--Seleccione el tipo de factura--</option>
+        <option value="FSFE">FSFE</option>
+        <option value="VCFE">VCFE</option>
+        <option value="POS">POS</option>
     </select>
 </div>
 
@@ -65,5 +72,10 @@
 
 <div class="campo">
     <label for="archivoGarantia">Archivo Fisico</label>
-    <input type="file" name="archivoGarantia" id="archivoGarantia">
+    <input type="file" name="archivoGarantia" id="archivoGarantia" accept="application/pdf">
+</div>
+
+<div class="campo">
+    <label for="comentarios">Comentarios</label>
+    <textarea name="comentarios" id="comentarios"></textarea>
 </div>

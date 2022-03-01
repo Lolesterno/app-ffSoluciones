@@ -5,7 +5,9 @@ namespace controllers;
 use MVC\Router;
 
 use Model\Garantias;
-use Model\CategoriaMedidor;
+use Model\Cliente;
+use Model\Departamento;
+use Model\Medidor;
 
 class GarantiasController {
     public static function index( Router $router ) {
@@ -13,10 +15,17 @@ class GarantiasController {
         isAuth();
         isAdmin();
         $alertas = [];
+        $garantias = new Garantias;
+        $clientes = new Cliente;
+        $todas = Garantias::all();
+        //$todas['nombre'] = "HolaMundo";
+        //debugear($todas);
+        
                                 
         $router->render('/garantias/index', [
             'titulo' => 'Garantias',
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'todas' => $todas
         ]);
     }
 
@@ -26,50 +35,59 @@ class GarantiasController {
         isAdmin();
 
         $alertas = [];
+        $departamentos = Departamento::all();
+        $medidorTipo = Medidor::all();
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $garantias = new Garantias($_POST);
 
-            $alertas = $garantias->validar();
 
-            if(empty($alertas)){
+            $cliente = Cliente::where('nit', $_POST['nit']);
+            
+            $garantia = new Garantias($_POST);
+            $garantia->clienteId = $cliente->id;
 
-                $hash = md5( uniqid() );
-                $garantias->url = $hash;
+            $carpetaGarantias = 'garantiasArchivos/';
 
-                $garantias->usuarioId = $_SESSION['id'];
+            if(!is_dir($carpetaGarantias)){
+                mkdir($carpetaGarantias);
+            }
 
-                $garantias->guardar();
+            $nombreArchivo = uniqid( md5(rand()) ).'.pdf';
 
-                header('Location: /garantia?url='.$garantias->url);
+            if($_FILES['archivoGarantia']['tmp_name']){
+                $garantia->setPDF($nombreArchivo);
+            }
+
+            $alertas = $garantia->validar();
+
+            if( empty($alertas) ){
+                if(!is_dir(CARPETA_PDF)){
+                    mkdir(CARPETA_PDF);
+                }
+
+                $subirArchivo = move_uploaded_file($_FILES['archivoGarantia']['tmp_name'], CARPETA_PDF.$nombreArchivo);
+
+                if($subirArchivo){
+                    
+                    $resultado = $garantia->guardar();
+                    
+                    if($resultado){
+                        header('Location: /garantias');
+                        $alertas = Garantias::setAlerta('exito', 'Garantia Creada correctamente');
+                    }
+                }
+
             }
 
         }
         
+        $alertas = Garantias::getAlertas();
         $router->render('/garantias/crear-garantia', [
             'alertas' => $alertas,
-            'titulo' => 'Nueva Garantia'
+            'titulo' => 'Nueva Garantia',
+            'departamentos' => $departamentos,
+            'medidores' => $medidorTipo
         ]);
     }
 
-    public static function garantia(Router $router) {
-        
-        isAuth();
-        isAdmin();
-
-        $token = $_GET['url'];
-
-        if(!$token) header('Location: /garantias');
-
-        $garantia = Garantias::where('url', $token);
-
-        if(!$garantia) header('Location: /garantias');
-        
-        $categorias =  CategoriaMedidor::all();
-
-        $router->render('/garantias/garantia', [
-            'titulo' => $garantia->nombreCliente,
-            'categorias' => $categorias
-        ]);
-    }
 }
